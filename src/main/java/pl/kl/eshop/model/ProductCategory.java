@@ -1,6 +1,8 @@
 package pl.kl.eshop.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,6 +20,8 @@ public class ProductCategory {
     @Column(name = "category_name")
     private String categoryName;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
 
